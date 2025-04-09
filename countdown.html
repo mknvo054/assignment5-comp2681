@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday's Countdown</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <!-- Heading as an Image -->
+    <a href="index.html"><header class="logo"><img src="./images/logo.png" alt="Website Logo"></header></a>
+    <!-- Navigation Buttons -->
+    <a href="index.html" class="nav-button">Home</a>
+    <a href="another_page.html" class="nav-button">Another Page</a>
+    <a href="form.html" class="nav-button">Contact Me</a>
+    <a href="birthday.html" class="nav-button">Birthday</a>
+    <a href="countdown.html" class="nav-button">Countdown</a>
+</nav>
+<div class="countdown-content">  
+  <div class="reminder" id="reminder"></div>
+</div>
+  <script>
+    const today = new Date(); //get today's date
+
+    //Find the next birthday
+    const birthdayMonth = 3; // April, (0 - Jan, 11 - Dec)
+    const birthdayDay = 30;
+    const currentYear = today.getFullYear();
+    let nextBirthday = new Date(currentYear, birthdayMonth, birthdayDay);
+    if (nextBirthday < today) { // Check if birthday has passed, if so, set it to next year
+      nextBirthday = new Date(currentYear + 1, birthdayMonth, birthdayDay);
+    }
+
+    // Calculate the day difference
+    const oneDay = 24 * 60 * 60 * 1000; //86400000 ms
+    const diffDays = Math.ceil((nextBirthday - today) / oneDay);
+
+    // select the text color based on the number of day difference
+    let textColor;
+    if (diffDays >= 60 && diffDays <= 183) textColor = 'green';
+    else if (diffDays < 30) textColor = 'red';
+    else textColor = 'blue';
+
+    // Display the countdown text
+    const messageDiv = document.getElementById('reminder');
+    messageDiv.textContent = `There are ${diffDays} day(s) left until my birthday!`;
+    messageDiv.style.color = textColor;
+  </script>
+
+</body>
+</html>
+

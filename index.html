@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+         <!-- Heading as an Image -->
+        <a href="index.html"><header class="logo"><img src="./images/logo.png" alt="Website Logo"></header></a>
+        <!-- Navigation Buttons -->
+        <a href="index.html" class="nav-button">Home</a>
+        <a href="another_page.html" title="This leads you to another page" class="nav-button">Another Page</a>
+        <a href="form.html" class="nav-button">Contact Me</a>
+        <a href="birthday.html" class="nav-button">Birthday</a>
+        <a href="countdown.html" class="nav-button">Countdown</a>
+    </nav>
+   
+    <!-- Page Content -->
+    <main>
+        <div class="system-time" id ="system-time"> System Time</div>
+        <section class = "intro">
+            <h1>Welcome to My Website</h1>
+            <p>Alberta, Canada, is a province known for its stunning natural landscapes, vibrant cities, and rich cultural heritage. Located in western Canada, Alberta is home to the majestic Rocky Mountains, vast prairies, and picturesque boreal forests. One of its most famous attractions is Banff National Park, a world-renowned destination offering breathtaking scenery, outdoor adventures, and diverse wildlife, including elk, bears, and mountain goats. The province also boasts Jasper National Park, another UNESCO World Heritage Site, known for its crystal-clear lakes, towering peaks, and incredible stargazing opportunities in one of the world's largest dark sky preserves.</p>
+            <p>Beyond its natural beauty, Alberta has a thriving economy driven by industries such as energy, agriculture, and technology. The cities of Calgary and Edmonton are bustling urban centers offering a mix of modern innovation and deep-rooted history. Calgary, famous for hosting the annual Calgary Stampede, embraces its cowboy culture, while Edmonton, the capital city, is known for its extensive festival scene and the massive West Edmonton Mall, one of the largest shopping and entertainment complexes in North America. With a strong education system, diverse population, and a high quality of life, Alberta remains a dynamic and desirable place to live, work, and explore.</p>
+        </section>    
+        <!-- Unordered List -->
+         <section class = "list-container">
+            <div class ="list-content">
+                <h2>Top Tourist Spots in Alberta, Canada:</h2>
+                <ul>
+                    <li>Banff National Park - Canada's first national park, famous for mountains, lakes, and wildlife.
+                    </li>
+                    <li>Moraine Lake - An iconic, glacier-fed lake with breathtaking scenery.</li>
+                    <li>Columbia Icefield & Athabasca Glacier - Explore the largest icefield in the Canadian Rockies.</li>
+                    <li>Calgary Tower - Offers panoramic views of the city and surrounding mountains.</li>
+                    <li>West Edmonton Mall - One of the largest malls in North America, featuring a water park, amusement park, and shopping.</li>
+                </ul>
+            </div>
+        </section>
+        
+    </main>
+</body>
+</html>
+<!--Changing background colour and Display system time -->
+<script>
+     // Function to change the body background color
+    function changeBackgroundColor() {
+        document.body.style.backgroundColor = colors[index];
+        index = (index + 1) % colors.length; // cycle back to 0 after last color
+    }
+
+    // Function to display system time
+    function updateSystemTime() {
+        const now = new Date();
+        const timeString = now.toLocaleString(); // Date + time
+        document.getElementById('system-time').textContent = timeString;
+    }
+
+    // List of colors to cycle through
+    const colors = ["#E2EFDE", "#AFD0BF", "#979797", "#808F87", "#9B7E46", "#F4B266"];
+    let index = 0;
+
+
+    // Change color every 1000 milliseconds (1 second)
+    setInterval(changeBackgroundColor, 2000);
+
+    updateSystemTime(); // initial call
+    setInterval(updateSystemTime, 1000); // update every second
+</script>
